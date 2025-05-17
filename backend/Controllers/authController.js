@@ -9,7 +9,7 @@ const generateToken=user=>{
     })
 }
 
-export const register = async(req,res)=>{
+export const register = async (req,res)=>{
     const {email, password, name, role, photo, gender}=req.body
     try {
         let user = null
@@ -77,7 +77,7 @@ export const login = async (req,res)=>{
             return res.status(404).json({message:'User not found'});
         }
 
-        const isPasswordMatch= bcrypt.compare(req.body.password,user.password)
+        const isPasswordMatch=await bcrypt.compare(req.body.password,user.password)
 
         if(!isPasswordMatch){
             return res.status(400).json({status:false,message:'Invalid credentials'})

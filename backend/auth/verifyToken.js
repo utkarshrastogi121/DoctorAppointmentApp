@@ -3,17 +3,24 @@ import Doctor from "../models/DoctorSchema.js";
 import User from "../models/UserSchema.js";
 
 export const authenticate = async (req, res, next) => {
-  const authToken = req.headers.authorization;
+  const authHeader = req.headers.authorization;
 
-  if (!authToken || !authToken.startsWith("Bearer "))
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
     return res
       .status(401)
       .json({ success: false, message: "No token, authorization denied!" });
+  }
+
+  const token = authHeader.split(" ")[1];
 
   try {
-    const token = authToken.split(" ")[1];
-
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    
+    if (!decoded || !decoded.id || !decoded.role) {
+      return res
+        .status(401)
+        .json({ success: false, message: "Invalid token payload" });
+    }
 
     req.userId = decoded.id;
     req.role = decoded.role;
@@ -21,34 +28,29 @@ export const authenticate = async (req, res, next) => {
     next();
   } catch (error) {
     if (error.name === "TokenExpiredError") {
-      return res.status(401).json({ message: "Token is expired" });
+      return res.status(401).json({ success: false, message: "Token is expired" });
     }
-
     return res.status(401).json({ success: false, message: "Invalid token" });
   }
 };
 
 export const restrict = (roles) => async (req, res, next) => {
-  const userId = req.userId;
+  try {
+    const userId = req.userId;
 
-  let user;
+    const user = await User.findById(userId) || await Doctor.findById(userId);
 
-  const patient = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ success: false, message: "User not found" });
+    }
 
-  const doctor = await Doctor.findById(userId);
+    if (!roles.includes(user.role)) {
+      return res.status(403).json({ success: false, message: "You're not authorized" });
+    }
 
-  if (patient) {
-    user = patient;
+    next();
+  } catch (error) {
+    console.error("Role check error:", error);
+    return res.status(500).json({ success: false, message: "Server error in role check" });
   }
-  if (doctor) {
-    user = doctor;
-  }
-
-  if (!roles.includes(user.role)) {
-    return res
-      .status(401)
-      .json({ success: false, message: "You're not authorized" });
-  }
-
-  next();
 };
