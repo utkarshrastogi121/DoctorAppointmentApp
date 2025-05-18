@@ -1,22 +1,18 @@
+/* eslint-disable no-unused-vars */
 import { formatDate } from '../../utils/formatDate'
 
-const DoctorAbout = () => {
+const DoctorAbout = ({ name, about, qualifications, experiences }) => {
   return (
     <div>
         <div>
             <h3 className='text-[20px] leading-[30px] text-headingColor font-semibold flex items-center gap-2'>
                 About Of
                 <span className='text-irisBlueColor font-bold text-[24px] leading-9'>
-                    Muhibur Rahman
+                    Utkarsh
                 </span>
             </h3>
             <p className="text__para">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                 Aspernatur est sit, ut quod consequuntur reprehenderit similique 
-                 facere enim odit consequatur! Possimus optio iusto sit sunt quisquam 
-                 aspernatur quis ullam, explicabo commodi quas
-                cupiditate porro consectetur recusandae quos esse, repellat, rem libero 
-                dolor est delectus eligendi! Reiciendis porro nulla assumenda deserunt.
+                Dr. Utkarsh is a highly skilled and dedicated surgeon with extensive experience in both academic and clinical settings. He is committed to providing exceptional patient care and advancing medical knowledge through continuous learning and research. His expertise spans complex surgical procedures, and he is known for his compassionate approach and professionalism.
             </p>
         </div>
 
