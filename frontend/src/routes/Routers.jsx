@@ -9,6 +9,7 @@ import Doctors from '../pages/Doctors/Doctors'
 import MyAccount from '../Dashboard/user-account/MyAccount'
 import Dashboard from '../Dashboard/doctor-account/Dashboard'
 import ProtectedRoute from './ProtectedRoute'
+import CheckoutSuccess from '../pages/CheckoutSuccess'
 
 
 import {Routes, Route} from 'react-router-dom'
@@ -49,6 +50,7 @@ const Routers = () => {
           <Route path="/register" element={<Signup></Signup>}></Route>
           <Route path="/contact" element={<Contact></Contact>}></Route>
           <Route path="/services" element={<Services></Services>}></Route>
+          <Route path="/checkout-success" element={<CheckoutSuccess></CheckoutSuccess>}></Route>
           <Route path="/users/profile/me" element={<ProtectedRoute allowedRoles={["patient"]}><MyAccount /></ProtectedRoute>}></Route>
           <Route path="/doctors/profile/me" element={<ProtectedRoute allowedRoles={["doctor"]}><Dashboard/></ProtectedRoute>}></Route>
         </Routes>
