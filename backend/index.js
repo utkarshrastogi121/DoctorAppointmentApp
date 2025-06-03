@@ -16,7 +16,7 @@ const app=express()
 const port=process.env.PORT 
 
 const corsOptions={
-    origin:"http://localhost:5173",
+    origin:"https://doctorappointment2-1fef.onrender.com",
     credentials: true
 }
 
