@@ -6,7 +6,7 @@ A full-stack web application that enables users to seamlessly book appointments 
 
 ## 🔗 Live Demo
 
-🌐 [Frontend](https://doctorappointmentapp-frontend.onrender.com)  
+🌐 [Frontend](https://doctorappointment2-1fef.onrender.com/)  
 🛠️ [Backend API](https://doctorappointmentapp-1-mw7u.onrender.com)
 
 ---
