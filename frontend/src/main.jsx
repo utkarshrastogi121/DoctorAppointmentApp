@@ -12,12 +12,13 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <AuthContextProvider>
         <ToastContainer
-          theme='dark' 
-          position='top-right' 
-          autoClose={3000} 
-          closeOnClick
-          pauseOnHover={false}
-          />
+        theme="dark"
+        position="top-right"
+        autoClose={3000}
+        closeOnClick
+        pauseOnHover={false}
+        style={{ zIndex: 9999 }}
+      />
         <App/>
       </AuthContextProvider>
     </BrowserRouter>
