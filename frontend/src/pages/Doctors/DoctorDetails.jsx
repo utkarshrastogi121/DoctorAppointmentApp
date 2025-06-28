@@ -14,7 +14,7 @@ const DoctorsDetails = () => {
 
   const [tab, setTab] = useState('about')
   const {id} = useParams()
-  const {data:doctor, loading, error}= useFetchData(`${BASE_URL}/doctors?query=${id}`)
+  const { data: doctor, loading, error } = useFetchData(`${BASE_URL}/doctors/${id}`);
 
   const {
     name,
