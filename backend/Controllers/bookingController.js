@@ -25,7 +25,7 @@ export const getCheckoutSession = async (req, res) => {
         {
           price_data: {
             currency: 'inr',
-            unit_amount: doctor.ticketPrice * 100,
+            unit_amount: doctor.ticketPrice * 100, // Stripe expects price in paise
             product_data: {
               name: `Appointment with Dr. ${doctor.name}`,
               description: doctor.bio,
@@ -37,6 +37,7 @@ export const getCheckoutSession = async (req, res) => {
       ],
     });
 
+    // Save booking info (optional here; you can also save it after payment success using webhooks)
     const booking = new Booking({
       doctor: doctor._id,
       user: user._id,
@@ -49,10 +50,12 @@ export const getCheckoutSession = async (req, res) => {
     res.status(200).json({
       success: true,
       message: 'Session created successfully',
-      url: session.url,
+      session: {
+        url: session.url,
+      },
     });
   } catch (err) {
-    console.error('Stripe error:', err);
+    console.error('Stripe checkout session error:', err.message);
     res.status(500).json({
       success: false,
       message: 'Error creating checkout session',
