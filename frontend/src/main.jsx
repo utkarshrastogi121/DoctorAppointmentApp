@@ -11,6 +11,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <AuthContextProvider>
+                <App/>
         <ToastContainer
         theme="dark"
         position="top-right"
@@ -19,7 +20,6 @@ createRoot(document.getElementById('root')).render(
         pauseOnHover={false}
         style={{ zIndex: 9999 }}
       />
-        <App/>
       </AuthContextProvider>
     </BrowserRouter>
   </StrictMode>,
