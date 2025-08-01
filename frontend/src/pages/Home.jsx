@@ -1,14 +1,14 @@
 import React from 'react'
-import heroImg01 from '../assets/images/hero-img01.png'
-import heroImg02 from '../assets/images/hero-img02.png'
-import heroImg03 from '../assets/images/hero-img03.png'
+import doctor1 from '../assets/images/doctor1.jpg'
+import doctor2 from '../assets/images/doctor2.jpg'
+import doctor3 from '../assets/images/doctor3.jpg'
+import doctor4 from '../assets/images/doctor4.jpg
 import icon01 from '../assets/images/icon01.png'
 import icon02 from '../assets/images/icon02.png'
 import icon03 from '../assets/images/icon03.png'
-import featureImg from '../assets/images/feature-img.png'
 import videoIcon from '../assets/images/video-icon.png'
 import avatarIcon from '../assets/images/avatar-icon.png'
-import faqImg from '../assets/images/faq-img.png'
+import doctor5 from '../assets/images/doctor5.jpg'
 import { Link } from 'react-router-dom'
 import { BsArrowRight} from 'react-icons/bs'
 import About from '../components/About/About'
@@ -77,11 +77,11 @@ const Home = () => {
 
             <div className='flex gap-[30px] justify-end'>
               <div>
-                <img className='w-full' src={heroImg01} alt="" />
+                <img className='w-full' src={doctor1} alt="" />
               </div>
               <div className='mt-[30px]'>
-                <img src={heroImg02}  alt="" className='w-full mb-[30px]'/>
-                <img src={heroImg03} alt="" className='w-full' />
+                <img src={doctor2}  alt="" className='w-full mb-[30px]'/>
+                <img src={doctor3} alt="" className='w-full' />
               </div>
             </div>
 
@@ -220,7 +220,7 @@ const Home = () => {
             </div>
 
             <div className='relative z-10 xl:w-[770px] flex justify-end mt-[50px] lg:mt-0'>
-              <img src={featureImg} className='w-3/4' alt="" />
+              <img src={doctor4} className='w-3/4' alt="" />
 
               <div className='w-[150px] lg:w-[248px] bg-white absolute bottom-[50px] left-0 md:bottom-[100px] 
               md:left-5 z-20 p-2 pb-3 lg:pt-4 lg:px-4 lg:pb-[26px] rounded-[10px]'>
@@ -246,7 +246,7 @@ const Home = () => {
               <div className='flex items-center gap-[6px] lg:gap-[10px] mt-2 lg:mt-[18px]'>
                 <img src={avatarIcon} alt="" />
                 <h4 className='text-[10px] leading-3 lg:text-[16px] lg:leading-[22px] font-[700]
-                 text-headingColor'>Mohamed Boukthir</h4>
+                 text-headingColor'>Utkarsh Rastogi</h4>
               </div>
 
               </div>
@@ -276,7 +276,7 @@ const Home = () => {
         <div className="container">
           <div className='flex justify-between gap-[50px] lg:gap-0'>
             <div className='w-1/2 hidden md:block'>
-              <img src={faqImg} alt="" />
+              <img src={doctor5} alt="" />
             </div>
             <div className='w-full md:w-1/2'>
               <h2 className='heading'>
