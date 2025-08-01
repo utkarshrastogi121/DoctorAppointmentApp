@@ -2,7 +2,7 @@ import React from 'react'
 import doctor1 from '../assets/images/doctor1.jpg'
 import doctor2 from '../assets/images/doctor2.jpg'
 import doctor3 from '../assets/images/doctor3.jpg'
-import doctor4 from '../assets/images/doctor4.jpg
+import doctor4 from '../assets/images/doctor4.jpg'
 import icon01 from '../assets/images/icon01.png'
 import icon02 from '../assets/images/icon02.png'
 import icon03 from '../assets/images/icon03.png'
