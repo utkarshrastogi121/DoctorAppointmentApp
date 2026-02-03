@@ -6,7 +6,7 @@ const Contact = () => {
           Contact Us
         </h2>
         <p className='mb-8 lg:mb-16 font-light text-center text__para'>
-          Got a technical issue ? Want to send feedback about beta feuture ? Let Us Know
+          Got a technical issue? Want to send feedback about a beta feature? Let us know.
         </p>
         <form action="#" className='space-y-8'>
           <div>
@@ -17,7 +17,9 @@ const Contact = () => {
               type="email"
               id='email'
               placeholder='example@gmail.com'
-              className='form__input mt-1' />
+              className='form__input mt-1'
+              required
+            />
           </div>
           <div>
             <label htmlFor="subject" className='form__label'>
@@ -27,28 +29,31 @@ const Contact = () => {
               type="text"
               id='subject'
               placeholder='Let us know how we can help you'
-              className='form__input mt-1' />
+              className='form__input mt-1'
+              required
+            />
           </div>
-          <div className="sm:col-span-2">
+          <div>
             <label htmlFor="message" className='form__label'>
               Your Message
             </label>
             <textarea
               rows={5}
-              type="text"
               id='message'
               placeholder='Leave a comment . . .'
-              className='form__input-1 mt-1' />
+              className='form__input mt-1'
+              required
+            />
           </div>
           <button
             type="submit"
-            className="btn rounded sm:w-fit">
+            className="btn rounded sm:w-fit w-full sm:mx-0 mx-auto">
             Submit
           </button>
         </form>
       </div>
     </section>
-    )
+  )
 }
 
 export default Contact
