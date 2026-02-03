@@ -56,13 +56,13 @@ const Home = () => {
             </div>
 
             {/* Hero Images (only visible on large screens) */}
-            <div className="hidden lg:flex gap-4 justify-end items-start">
+            <div className="hidden lg:flex gap-16 justify-end items-start">
               {/* Main Image */}
               <div className="flex-shrink-0">
                 <img 
                   src={hero1} 
                   alt="Hero 1" 
-                  className="max-w-[400px] w-full h-auto rounded-lg shadow-md" 
+                  className="max-w-[350px] w-full h-auto rounded-lg shadow-md" 
                 />
               </div>
 
@@ -76,7 +76,7 @@ const Home = () => {
                 <img 
                   src={hero3} 
                   alt="Hero 3" 
-                  className="max-w-[180px] w-full h-auto rounded-lg shadow-md" 
+                  className="max-w-[180px] w-full h-auto rounded-lg shadow-md mt-28" 
                 />
               </div>
             </div>
@@ -104,7 +104,7 @@ const Home = () => {
               link: "/doctors"
             },{
               icon: icon02,
-              title: "Find A Location",
+              title: "Choose A Location",
               desc: "Locate our clinics and healthcare facilities near you for convenient access.",
               link: "/doctors"
             },{
@@ -152,7 +152,7 @@ const Home = () => {
       </section>
 
       {/* Testimonial Section */}
-      <section className="py-16">
+      {/* <section className="py-16">
         <div className="container mx-auto text-center">
           <div className="max-w-[470px] mx-auto mb-10">
             <h2 className="heading">What Our Patients Say</h2>
@@ -162,8 +162,9 @@ const Home = () => {
           </div>
           <Testimonial />
         </div>
-      </section>
+      </section> */}
 
+        <Testimonial/>
     </>
   )
 }
