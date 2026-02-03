@@ -42,7 +42,7 @@ const Doctors = () => {
               onChange={(e) => setQuery(e.target.value)}
             />
             <button
-              className="btn mt-0 rounded-r-md"
+              className="btn mt-0 rounded"
               onClick={handleSearch}
             >
               Search
