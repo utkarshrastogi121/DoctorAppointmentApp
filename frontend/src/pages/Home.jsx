@@ -139,7 +139,7 @@ const Home = () => {
               <FaqList />
             </div>
 
-            <div className="w-full md:w-1/2 flex justify-center md:justify-end">
+            <div className="w-full md:w-1/2 flex justify-center md:justify-end mr-24">
               <img 
                 src={faq} 
                 alt="FAQ" 
@@ -152,17 +152,6 @@ const Home = () => {
       </section>
 
       {/* Testimonial Section */}
-      {/* <section className="py-16">
-        <div className="container mx-auto text-center">
-          <div className="max-w-[470px] mx-auto mb-10">
-            <h2 className="heading">What Our Patients Say</h2>
-            <p className="text__para mt-4">
-              We value our patients' feedback and strive to provide the best care possible. Here's what some of our patients have to say about their experiences with us.
-            </p>
-          </div>
-          <Testimonial />
-        </div>
-      </section> */}
 
         <Testimonial/>
     </>
