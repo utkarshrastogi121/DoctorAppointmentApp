@@ -31,9 +31,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Toggle menu
-  const toggleMenu = () => setMenuOpen((prev) => !prev);
-
   return (
     <header ref={headerRef} className="header flex items-center relative z-50">
       <div className="container">
@@ -45,7 +42,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex">
-            <ul className="menu flex items-center gap-[2.7rem]">
+            <ul className="menu flex items-center gap-[2.5rem]">
               {navLinks.map((link, idx) => (
                 <li key={idx}>
                   <NavLink
@@ -73,7 +70,7 @@ const Header = () => {
                     : "/users/profile/me"
                 }
               >
-                <figure className="w-[35px] h-[35px] rounded-full cursor-pointer">
+                <figure className="w-[36px] h-[36px] rounded-full cursor-pointer">
                   <img
                     src={user.photo}
                     alt="User Profile"
@@ -83,14 +80,23 @@ const Header = () => {
               </Link>
             ) : (
               <Link to="/login">
-                <button className="bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] rounded-[50px]">
+                <button
+                  className="bg-primaryColor text-white font-[600]
+                             h-[36px] px-5
+                             rounded-md
+                             flex items-center justify-center
+                             hover:bg-opacity-90 transition"
+                >
                   Login
                 </button>
               </Link>
             )}
 
             {/* Mobile Hamburger */}
-            <span className="md:hidden" onClick={toggleMenu}>
+            <span
+              className="md:hidden flex items-center"
+              onClick={() => setMenuOpen(true)}
+            >
               <BiMenu className="w-6 h-6 cursor-pointer" />
             </span>
           </div>
@@ -99,7 +105,8 @@ const Header = () => {
 
       {/* Mobile Sidebar Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300
+        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50
+        transform transition-transform duration-300
         ${menuOpen ? "translate-x-0" : "translate-x-full"} md:hidden`}
       >
         {/* Close button */}
@@ -111,8 +118,7 @@ const Header = () => {
         </div>
 
         {/* Menu links */}
-        {/* Menu links */}
-        <ul className="flex flex-col gap-3 px-6 mt-4">
+        <ul className="flex flex-col gap-4 px-6 mt-6">
           {navLinks.map((link, idx) => (
             <li key={idx}>
               <NavLink
