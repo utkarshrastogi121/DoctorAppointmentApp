@@ -33,7 +33,6 @@ const Home = () => {
               <p className="text__para mt-4">
                 Our mission is to provide top-notch healthcare services, empowering individuals to achieve optimal wellness and improve their quality of life.
               </p>
-              <button className="btn mt-6">Request An Appointment</button>
 
               {/* Stats */}
               <div className="mt-8 flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-10">
