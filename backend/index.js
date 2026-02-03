@@ -15,12 +15,12 @@ const app=express()
 
 const port=process.env.PORT 
 
-const corsOptions={
-    origin:"https://doctorappointment2-1fef.onrender.com",
-    credentials: true
-}
+// const corsOptions={
+//     origin:"https://doctorappointment2-1fef.onrender.com",
+//     credentials: true
+// }
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.get('/', (req, res) => {
     res.send('API is working')
