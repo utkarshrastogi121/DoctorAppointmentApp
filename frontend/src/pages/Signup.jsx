@@ -17,15 +17,17 @@ const Signup = () => {
     photo: '',
     gender: '',
     role: 'patient',
+    specialization: '',
+    ticketPrice: '',
   });
 
   const navigate = useNavigate();
 
-  const handleInputChange = e => {
+  const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleFileInputChange = async e => {
+  const handleFileInputChange = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
 
@@ -38,22 +40,25 @@ const Signup = () => {
     }
   };
 
-  const submitHandler = async e => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
+      // Only send doctor fields if role is doctor
+      const payload =
+        formData.role === 'doctor'
+          ? formData
+          : { ...formData, specialization: undefined, ticketPrice: undefined };
+
       const res = await fetch(`${BASE_URL}/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       const result = await res.json();
-
-      if (!res.ok) {
-        throw new Error(result.message || 'Registration failed');
-      }
+      if (!res.ok) throw new Error(result.message || 'Registration failed');
 
       toast.success(result.message);
       setLoading(false);
@@ -83,79 +88,94 @@ const Signup = () => {
 
             <form onSubmit={submitHandler} className="space-y-5">
               {/* Full Name */}
-              <div>
-                <label htmlFor="name" className="sr-only">Full Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Full Name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 border-b border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-headingColor placeholder:text-textColor"
-                />
-              </div>
+              <input
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                value={formData.name}
+                onChange={handleInputChange}
+                required
+                className="w-full px-4 py-3 border-b border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-headingColor placeholder:text-textColor"
+              />
 
               {/* Email */}
-              <div>
-                <label htmlFor="email" className="sr-only">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Enter Your Email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 border-b border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-headingColor placeholder:text-textColor"
-                />
-              </div>
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter Your Email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+                className="w-full px-4 py-3 border-b border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-headingColor placeholder:text-textColor"
+              />
 
               {/* Password */}
-              <div>
-                <label htmlFor="password" className="sr-only">Password</label>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="Password"
-                  value={formData.password}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 border-b border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-headingColor placeholder:text-textColor"
-                />
-              </div>
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleInputChange}
+                required
+                className="w-full px-4 py-3 border-b border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-headingColor placeholder:text-textColor"
+              />
 
               {/* Role & Gender */}
               <div className="flex flex-col sm:flex-row justify-between gap-4">
-                <label className="text-headingColor font-semibold">
+                <label className="text-headingColor font-semibold flex-1">
                   Are You A:
                   <select
                     name="role"
                     value={formData.role}
                     onChange={handleInputChange}
-                    className="ml-2 px-4 py-2 text-textColor border rounded-md focus:outline-none"
+                    className="ml-2 px-4 py-2 text-textColor border rounded-md focus:outline-none w-full"
                   >
                     <option value="patient">Patient</option>
                     <option value="doctor">Doctor</option>
                   </select>
                 </label>
 
-                <label className="text-headingColor font-semibold">
+                <label className="text-headingColor font-semibold flex-1">
                   Gender:
                   <select
                     name="gender"
                     value={formData.gender}
                     onChange={handleInputChange}
-                    className="ml-2 px-4 py-2 text-textColor border rounded-md focus:outline-none"
+                    required
+                    className="ml-2 px-4 py-2 text-textColor border rounded-md focus:outline-none w-full"
                   >
-                    <option value="" disabled>Select Gender</option>
+                    <option value="" disabled>
+                      Select Gender
+                    </option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                   </select>
                 </label>
               </div>
+
+              {/* Doctor Fields */}
+              {formData.role === 'doctor' && (
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <input
+                    type="text"
+                    name="specialization"
+                    placeholder="Specialization"
+                    value={formData.specialization}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border-b border-[#0066ff61] focus:outline-none focus:border-b-primaryColor"
+                  />
+                  <input
+                    type="number"
+                    name="ticketPrice"
+                    placeholder="Ticket Price"
+                    value={formData.ticketPrice}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border-b border-[#0066ff61] focus:outline-none focus:border-b-primaryColor"
+                  />
+                </div>
+              )}
 
               {/* Photo Upload */}
               <div className="flex items-center gap-4">
@@ -182,17 +202,17 @@ const Signup = () => {
               </div>
 
               {/* Submit */}
-              <div>
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className={`w-full bg-primaryColor text-white px-4 py-3 rounded-lg text-[18px] font-semibold flex justify-center items-center ${
-                    loading ? 'opacity-70 cursor-not-allowed' : 'hover:bg-blue-600 transition-all duration-300'
-                  }`}
-                >
-                  {loading ? <HashLoader size={30} color="#fff" /> : 'Sign Up'}
-                </button>
-              </div>
+              <button
+                type="submit"
+                disabled={loading}
+                className={`w-full bg-primaryColor text-white px-4 py-3 rounded-lg text-[18px] font-semibold flex justify-center items-center ${
+                  loading
+                    ? 'opacity-70 cursor-not-allowed'
+                    : 'hover:bg-blue-600 transition-all duration-300'
+                }`}
+              >
+                {loading ? <HashLoader size={30} color="#fff" /> : 'Sign Up'}
+              </button>
 
               {/* Login Link */}
               <p className="text-center text-textColor">
