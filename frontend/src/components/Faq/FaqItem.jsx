@@ -4,31 +4,30 @@ import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 function FaqItem({ item }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleAccordion = () => setIsOpen(!isOpen);
-
   return (
     <div
-      className="p-3 lg:p-5 rounded-[12px] border border-solid border-[#D9DCE2] mb-5 cursor-pointer transition-all duration-300"
-      onClick={toggleAccordion}
+      className="p-3 lg:p-4 rounded-[10px] border border-[#D9DCE2] mb-3 cursor-pointer transition-all duration-300"
+      onClick={() => setIsOpen(!isOpen)}
       role="button"
       aria-expanded={isOpen}
     >
       {/* Header */}
-      <div className="flex items-center justify-between gap-5">
-        <h4 className="text-[16px] leading-7 lg:text-[22px] lg:leading-8 text-headingColor">
+      <div className="flex items-center justify-between gap-3">
+        <h4 className="text-[14px] lg:text-[16px] leading-6 text-headingColor font-medium">
           {item.question}
         </h4>
+
         <div
-          className={`w-7 h-7 lg:h-8 border border-solid border-[#141F21] rounded flex items-center justify-center transition-colors duration-300
+          className={`w-6 h-6 lg:w-7 lg:h-7 border border-[#141F21] rounded flex items-center justify-center transition-colors duration-300
             ${isOpen ? 'bg-primaryColor text-white border-none' : ''}`}
         >
-          {isOpen ? <AiOutlineMinus /> : <AiOutlinePlus />}
+          {isOpen ? <AiOutlineMinus size={14} /> : <AiOutlinePlus size={14} />}
         </div>
       </div>
 
       {/* Content */}
       {isOpen && (
-        <div className="mt-4 text-[14px] lg:text-[16px] leading-6 lg:leading-7 font-[400] text-textColor transition-all duration-300">
+        <div className="mt-2 text-[13px] lg:text-[14px] leading-5 text-textColor">
           <p>{item.content}</p>
         </div>
       )}
