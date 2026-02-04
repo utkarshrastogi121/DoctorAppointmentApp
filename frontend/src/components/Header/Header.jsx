@@ -4,7 +4,7 @@ import { BiMenu } from "react-icons/bi";
 import { IoMdClose } from "react-icons/io";
 import logo from "../../assets/images/logo.png";
 import { authContext } from "../../context/AuthContext";
-
+import defaultPhoto from "../../assets/images/default.jpeg"
 const navLinks = [
   { path: "/home", display: "Home" },
   { path: "/doctors", display: "Find a Doctor" },
@@ -72,7 +72,7 @@ const Header = () => {
               >
                 <figure className="w-[36px] h-[36px] rounded-full cursor-pointer">
                   <img
-                    src={user.photo}
+                    src={user.photo || defaultPhoto}
                     alt="User Profile"
                     className="w-full h-full rounded-full object-cover"
                   />

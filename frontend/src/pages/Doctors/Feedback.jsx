@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { formatDate } from '../../utils/formatDate';
 import { AiFillStar } from 'react-icons/ai';
 import FeedbackForm from './FeedbackForm';
+import defaultPhoto from "../../assets/images/default.jpeg"
 
 const Feedback = ({ reviews = [], totalRating = 0 }) => {
   const [showFeedbackForm, setShowFeedbackForm] = useState(false);
@@ -23,7 +24,7 @@ const Feedback = ({ reviews = [], totalRating = 0 }) => {
               <div className="flex gap-3">
                 <figure className="w-10 h-10 rounded-full overflow-hidden">
                   <img
-                    src={review?.user?.photo || '/default-avatar.png'}
+                    src={review?.user?.photo || defaultPhoto}
                     alt={review?.user?.name || 'User'}
                     className="w-full h-full object-cover"
                   />

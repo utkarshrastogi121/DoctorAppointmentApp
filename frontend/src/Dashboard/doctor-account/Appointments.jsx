@@ -1,4 +1,5 @@
 import { formatDate } from '../../utils/formatDate'
+import defaultPhoto from "../../assets/images/default.jpeg"
 
 const Appointments = ({ appointments }) => {
   return (
@@ -21,7 +22,7 @@ const Appointments = ({ appointments }) => {
               className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap"
             >
               <img
-                src={item.user.photo}
+                src={item.user.photo || defaultPhoto}
                 alt=""
                 className="w-10 h-10 rounded-full"
               />

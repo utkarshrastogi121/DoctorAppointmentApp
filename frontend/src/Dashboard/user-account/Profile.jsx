@@ -1,10 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect,useContext } from 'react';
 import uploadImageToCloudinary from '../../utils/uploadCloudinary.js';
-import { BASE_URL, token } from '../../../config.js';
+import { BASE_URL } from '../../../config.js';
 import { toast } from 'react-toastify';
 import HashLoader from 'react-spinners/HashLoader';
+import { authContext } from '../../context/AuthContext';
+import defaultPhoto from '../../assets/images/default.jpeg';
 
 const Profile = ({ user }) => {
+  const { token } = useContext(authContext);
   const [selectedFile, setSelectedFile] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -17,16 +20,15 @@ const Profile = ({ user }) => {
     bloodType: '',
   });
 
-  // Populate form data when user prop changes
   useEffect(() => {
     if (user) {
       setFormData({
         name: user.name || '',
         email: user.email || '',
-        photo: user.photo || null,
+        photo: user.photo ,
         gender: user.gender || '',
         bloodType: user.bloodType || '',
-        password: '', // Do not prefill password
+        password: '',
       });
     }
   }, [user]);
@@ -68,7 +70,7 @@ const Profile = ({ user }) => {
 
     toast.success(result.message);
 
-    window.location.replace('/users/profile/me');
+    window.location.reload();
 
   } catch (error) {
     toast.error(error.message);
@@ -153,7 +155,7 @@ const Profile = ({ user }) => {
         <div className="mb-5 flex items-center gap-3">
           {formData.photo && (
             <figure className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primaryColor flex items-center justify-center">
-              <img src={formData.photo} alt="Profile" className="w-full h-full rounded-full" />
+              <img src={formData.photo || defaultPhoto } alt="Profile" className="w-full h-full rounded-full" />
             </figure>
           )}
           <div className="relative w-[130px] h-[50px]">

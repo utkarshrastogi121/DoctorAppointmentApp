@@ -2,16 +2,18 @@ import { useContext, useState } from 'react'
 import { authContext } from '../../context/AuthContext'
 import MyBookings from './MyBookings'
 import Profile from './Profile'
-import useGetProfile from '../../hooks/useFetchData'
+import useFetchData from '../../hooks/useFetchData'
 import { BASE_URL } from '../../../config'
 import Loading from '../../components/Loader/Loading'
 import Error from '../../components/Error/Error'
+import defaultPhoto from '../../assets/images/default.jpeg';
+
 
 const MyAccount = () => {
   const { dispatch } = useContext(authContext)
   const [tab, setTab] = useState('bookings')
 
-  const { data: userData, loading, error } = useGetProfile(`${BASE_URL}/users/profile/me`)
+  const { data: userData, loading, error } = useFetchData(`${BASE_URL}/users/profile/me`)
 
   const handleLogout = () => {
     dispatch({ type: 'LOGOUT' })
@@ -30,7 +32,7 @@ const MyAccount = () => {
             <div className="pb-[50px] px-[30px] rounded-md">
               <div className="flex justify-center">
                 <figure className="w-[100px] h-[100px] rounded-full border-2 border-primaryColor overflow-hidden">
-                  <img src={userData.photo} alt={userData.name} className="w-full h-full object-cover" />
+                  <img src={userData.photo || defaultPhoto} alt={userData.name} className="w-full h-full object-cover" />
                 </figure>
               </div>
 

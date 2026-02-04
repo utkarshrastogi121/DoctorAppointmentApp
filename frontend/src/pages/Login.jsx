@@ -46,7 +46,7 @@ const Login = () => {
             role:result.role,
           }
         })
-        console.log(result,'logim data')
+        console.log(result,'login data')
         setLoading(false)
         toast.success(result.message)
         navigate('/')

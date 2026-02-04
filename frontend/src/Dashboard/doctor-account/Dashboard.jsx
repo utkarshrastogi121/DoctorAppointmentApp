@@ -8,6 +8,7 @@ import starIcon from '../../assets/images/Star.png'
 import DoctorAbout from '../../pages/Doctors/DoctorAbout.jsx'
 import Profile from './Profile.jsx'
 import Appointments from './Appointments.jsx'
+import defaultPhoto from "../../assets/images/default.jpeg"
 
 const Dashboard = () => {
   const { data, loading, error } = useGetProfile(`${BASE_URL}/doctors/profile/me`)
@@ -43,7 +44,7 @@ const Dashboard = () => {
                   <div>
                     <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 mb-10">
                       <figure className="w-[200px] h-[200px] flex-shrink-0 rounded overflow-hidden">
-                        <img src={data?.photo} alt={data?.name} className="w-full h-full object-cover" />
+                        <img src={data?.photo || defaultPhoto} alt={data?.name} className="w-full h-full object-cover" />
                       </figure>
 
                       <div className="flex-1">
