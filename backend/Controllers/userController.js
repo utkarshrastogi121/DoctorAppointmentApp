@@ -12,7 +12,7 @@ export const updateUser = async (req, res) => {
     return res.status(400).json({ success: false, message: "Invalid user ID" });
   }
 
-  if (req.userId !== id && req.userRole !== "admin") {
+  if (req.userId !== id && req.role !== "admin") {
     return res.status(403).json({ success: false, message: "Unauthorized" });
   }
 
@@ -44,7 +44,7 @@ export const deleteUser = async (req, res) => {
     return res.status(400).json({ success: false, message: "Invalid user ID" });
   }
 
-  if (req.userId !== id && req.userRole !== "admin") {
+  if (req.userId !== id && req.role !== "admin") {
     return res.status(403).json({ success: false, message: "Unauthorized" });
   }
 
