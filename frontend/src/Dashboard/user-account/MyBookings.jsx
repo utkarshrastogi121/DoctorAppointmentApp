@@ -5,7 +5,11 @@ import Loading from "../../components/Loader/Loading"
 import Error from "../../components/Error/Error"
 
 const MyBookings = () => {
-  const { data: appointments = [], loading, error } = useFetchData(`${BASE_URL}/users/appointments/my-appointments`)
+  const { data, loading, error } = useFetchData(
+    `${BASE_URL}/users/appointments/my-appointments`
+  )
+
+  const appointments = Array.isArray(data) ? data : []
 
   if (loading) return <Loading />
   if (error) return <Error errMessage={error} />

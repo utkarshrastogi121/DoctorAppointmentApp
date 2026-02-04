@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import uploadImageToCloudinary from '../../utils/uploadCloudinary.js';
 import { BASE_URL, token } from '../../../config.js';
 import { toast } from 'react-toastify';
@@ -17,8 +16,6 @@ const Profile = ({ user }) => {
     gender: '',
     bloodType: '',
   });
-
-  const navigate = useNavigate();
 
   // Populate form data when user prop changes
   useEffect(() => {
@@ -52,31 +49,34 @@ const Profile = ({ user }) => {
   };
 
   const submitHandler = async (event) => {
-    event.preventDefault();
-    setLoading(true);
+  event.preventDefault();
+  setLoading(true);
 
-    try {
-      const res = await fetch(`${BASE_URL}/users/${user._id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(formData),
-      });
+  try {
+    const res = await fetch(`${BASE_URL}/users/${user._id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(formData),
+    });
 
-      const { message } = await res.json();
+    const result = await res.json();
 
-      if (!res.ok) throw new Error(message || 'Something went wrong');
+    if (!res.ok) throw new Error(result.message || 'Something went wrong');
 
-      toast.success(message);
-      setLoading(false);
-      navigate('/users/profile/me');
-    } catch (error) {
-      toast.error(error.message);
-      setLoading(false);
-    }
-  };
+    toast.success(result.message);
+
+    window.location.replace('/users/profile/me');
+
+  } catch (error) {
+    toast.error(error.message);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="mt-10">
