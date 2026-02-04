@@ -74,20 +74,6 @@ const Doctors = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-10">
-        <div className="container">
-          <div className="xl:w-[470px] mx-auto text-center mb-8">
-            <h2 className="heading">What Our Patients Say</h2>
-            <p className="text__para">
-              World-Class Care For Everyone. Our Health System Offers Unmatched,
-              Expert Health Care.
-            </p>
-          </div>
-
-          <Testimonial />
-        </div>
-      </section>
     </>
   );
 };
