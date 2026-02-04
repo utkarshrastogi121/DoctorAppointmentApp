@@ -1,13 +1,18 @@
-import { useEffect, useState } from 'react';
-import { token } from '../../config.js';
+import { useEffect, useState, useContext } from 'react';
+import { authContext } from '../context/AuthContext';
 
 const useFetchData = (url, options = {}) => {
+  const { token: contextToken } = useContext(authContext);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const token = contextToken || localStorage.getItem('token');
+    if (!token) return;
+
     const controller = new AbortController();
+
     const fetchData = async () => {
       setLoading(true);
       setError(null);
@@ -41,8 +46,8 @@ const useFetchData = (url, options = {}) => {
 
     fetchData();
 
-    return () => controller.abort(); // Cancel request on unmount
-  }, [url]);
+    return () => controller.abort();
+  }, [url, contextToken]);
 
   return { data, loading, error };
 };
