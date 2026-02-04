@@ -48,6 +48,7 @@ cd DoctorAppointmentApp
 ```bash
 cd backend
 npm install
+npm run start
 ```
 Create a .env file inside the backend folder and add the following variables:
 ```env
