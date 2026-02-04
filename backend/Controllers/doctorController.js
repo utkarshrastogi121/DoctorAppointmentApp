@@ -117,7 +117,7 @@ export const getDoctorProfile = async (req,res)=>{
     }
     const {password, ...rest}= doctor._doc
     const appointments = await Booking.find({doctor:doctorId})
-    res.status(200).json({success:false,message:'Profile info is getting', data:{...rest,appointments}})
+    res.status(200).json({success:true,message:'Profile info is getting', data:{...rest,appointments}})
   } catch (error) {
     res.status(500).json({success:false, message:'Something went wrong, cannot get'})
   }
