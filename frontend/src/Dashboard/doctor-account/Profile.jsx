@@ -7,12 +7,11 @@ import { authContext } from "../../context/AuthContext";
 import defaultPhoto from "../../assets/images/default.jpeg";
 
 const DoctorProfile = ({ doctorData }) => {
-  const { token } = useContext(authContext); // get token from context
+  const { token } = useContext(authContext);
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    password: "",
     phone: "",
     bio: "",
     gender: "",
@@ -30,7 +29,6 @@ const DoctorProfile = ({ doctorData }) => {
       setFormData({
         name: doctorData.name || "",
         email: doctorData.email || "",
-        password: "",
         phone: doctorData.phone || "",
         bio: doctorData.bio || "",
         gender: doctorData.gender || "",
@@ -433,13 +431,15 @@ const DoctorProfile = ({ doctorData }) => {
 
         {/* Photo Upload */}
         <div className="mb-5 flex items-center gap-3">
-          <figure className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primaryColor flex items-center justify-center">
-            <img
-              src={formData.photo || defaultPhoto}
-              alt="Profile"
-              className="w-full h-full rounded-full"
-            />
-          </figure>
+          {formData.photo && (
+            <figure className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primaryColor flex items-center justify-center">
+              <img
+                src={formData.photo || defaultPhoto}
+                alt="Profile"
+                className="w-full h-full rounded-full"
+              />
+            </figure>
+          )}
 
           <div className="relative w-[130px] h-[50px]">
             <input

@@ -14,7 +14,6 @@ const Profile = ({ user }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    password: '',
     photo: null,
     gender: '',
     bloodType: '',
@@ -28,7 +27,6 @@ const Profile = ({ user }) => {
         photo: user.photo ,
         gender: user.gender || '',
         bloodType: user.bloodType || '',
-        password: '',
       });
     }
   }, [user]);
@@ -105,18 +103,6 @@ const Profile = ({ user }) => {
             value={formData.email}
             readOnly
             className="w-full pr-4 py-3 border-b border-solid border-[#0066ff61] text-[16px] leading-7 text-headingColor placeholder:text-textColor bg-gray-100 cursor-not-allowed"
-          />
-        </div>
-
-        {/* Password */}
-        <div className="mb-5">
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={handleInputChange}
-            className="w-full pr-4 py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor"
           />
         </div>
 
