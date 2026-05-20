@@ -3,7 +3,7 @@ import Home from '../pages/Home'
 import Services from '../pages/Services'
 import Login from '../pages/Login'
 import Signup from '../pages/Signup'
-import Contact from '../pages/Contact'
+import AboutUs from '../pages/AboutUs'
 import DoctorDetails from '../pages/Doctors/DoctorDetails'
 import Doctors from '../pages/Doctors/Doctors'
 import MyAccount from '../Dashboard/user-account/MyAccount'
@@ -48,7 +48,7 @@ const Routers = () => {
           <Route path="/doctors/:id" element={<DoctorDetails></DoctorDetails>}></Route>
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/register" element={<Signup></Signup>}></Route>
-          <Route path="/contact" element={<Contact></Contact>}></Route>
+          <Route path="/about-us" element={<AboutUs></AboutUs>}></Route>
           <Route path="/services" element={<Services></Services>}></Route>
           <Route path="/checkout-success" element={<CheckoutSuccess></CheckoutSuccess>}></Route>
           <Route path="/users/profile/me" element={<ProtectedRoute allowedRoles={["patient"]}><MyAccount /></ProtectedRoute>}></Route>
