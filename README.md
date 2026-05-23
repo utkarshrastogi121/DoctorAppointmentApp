@@ -61,6 +61,7 @@ CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 STRIPE_SECRET_KEY=your_stripe_secret_key
+GROQ_API_KEY=your_groq_ai_api_key
 ```
 ### 💻 Frontend Setup
 ```bash
