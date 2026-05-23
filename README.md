@@ -1,6 +1,6 @@
 # 🩺 Doctor Appointment App
 
-A full-stack web application that enables users to seamlessly book appointments with doctors and provides doctors with tools to manage their schedules and profiles. Includes real-time booking, authentication, image uploads via Cloudinary, and secure payment integration using Stripe.
+A full-stack web application that enables users to seamlessly book appointments with doctors and provides doctors with tools to manage their schedules and profiles. Includes real-time booking, authentication, image uploads via Cloudinary, and secure payment integration using Stripe, and an AI-powered medical assistant chatbot using Groq AI.
 
 ---
 
@@ -18,8 +18,9 @@ A full-stack web application that enables users to seamlessly book appointments 
 - 💳 Secure payments via **Stripe**
 - ☁️ Image uploads handled with **Cloudinary**
 - 🔐 JWT-based authentication & protected routes
+- 🤖 AI-powered medical chatbot using **Groq AI (Llama 3)**
+- 🩺 Basic symptom guidance and healthcare assistance
 - 🧑‍⚕️ Doctor profile management
-- 📊 Admin dashboard to manage users, doctors, and appointments
 - 📬 Optional email confirmations
 - 🔍 Filter doctors by specialty, city, etc.
 
@@ -29,6 +30,7 @@ A full-stack web application that enables users to seamlessly book appointments 
 
 - **Frontend**: React, Tailwind CSS, React Router, Axios
 - **Backend**: Node.js, Express.js, MongoDB, Mongoose
+- **AI Integration**: Groq AI (Llama 3)
 - **Auth**: JWT-based secure authentication
 - **Payments**: Stripe API
 - **Image Storage**: Cloudinary
