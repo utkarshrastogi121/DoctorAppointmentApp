@@ -15,7 +15,7 @@ import FaqList from '../components/Faq/FaqList';
 import Testimonial from '../components/Testimonial/Testimonial';
 
 // AI Chatbot Import
-import AIChatbot from '../components/chatbot/AIChatbot';
+import AIChatbot from '../components/Chatbot/AIChatbot';
 
 const Home = () => {
   return (
