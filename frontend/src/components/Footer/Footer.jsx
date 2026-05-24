@@ -19,7 +19,7 @@ const mainLinks = [
   { path: "/home", display: "Home" },
   { path: "/services", display: "Services" },
   { path: "/find-a-doctor", display: "Find a Doctor" },
-  { path: "/contact", display: "Contact Us" },
+  { path: "/about-us", display: "About Us" },
 ];
 
 const Footer = () => {
