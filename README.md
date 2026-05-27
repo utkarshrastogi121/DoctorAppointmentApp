@@ -71,4 +71,3 @@ npm run dev
 ```
 ## 🤝 Contributing
 Pull requests and feature suggestions are welcome.
-Check the issues page for open tasks.
