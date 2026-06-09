@@ -6,7 +6,7 @@ import useFetchData from '../../hooks/useFetchData'
 import { BASE_URL } from '../../../config'
 import Loading from '../../components/Loader/Loading'
 import Error from '../../components/Error/Error'
-import defaultPhoto from '../../assets/images/default.jpeg';
+import defaultPhoto from '../../assets/images/default.webp';
 
 
 const MyAccount = () => {

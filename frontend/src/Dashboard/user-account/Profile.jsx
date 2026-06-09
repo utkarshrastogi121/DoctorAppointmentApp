@@ -4,7 +4,7 @@ import { BASE_URL } from '../../../config.js';
 import { toast } from 'react-toastify';
 import HashLoader from 'react-spinners/HashLoader';
 import { authContext } from '../../context/AuthContext';
-import defaultPhoto from '../../assets/images/default.jpeg';
+import defaultPhoto from '../../assets/images/default.webp';
 
 const Profile = ({ user }) => {
   const { token } = useContext(authContext);

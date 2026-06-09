@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PatientAvatar from "../../assets/images/patient-avatar.png";
+import PatientAvatar from "../../assets/images/patient-avatar.webp";
 import { HiStar } from "react-icons/hi";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 

@@ -2,9 +2,9 @@ import { useEffect, useRef, useContext, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
 import { IoMdClose } from "react-icons/io";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo.webp";
 import { authContext } from "../../context/AuthContext";
-import defaultPhoto from "../../assets/images/default.jpeg"
+import defaultPhoto from "../../assets/images/default.webp"
 const navLinks = [
   { path: "/home", display: "Home" },
   { path: "/doctors", display: "Find a Doctor" },

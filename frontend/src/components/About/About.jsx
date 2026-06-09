@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import aboutImg from '../../assets/images/about.jpg';
-import aboutCardImg from '../../assets/images/about-card.png';
+import aboutImg from '../../assets/images/about.webp';
+import aboutCardImg from '../../assets/images/about-card.webp';
 
 function About() {
   return (

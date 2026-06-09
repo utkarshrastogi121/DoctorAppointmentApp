@@ -4,11 +4,11 @@ import Error from '../../components/Error/Error'
 import useGetProfile from '../../hooks/useFetchData'
 import { BASE_URL } from '../../../config'
 import Tabs from './Tabs.jsx'
-import starIcon from '../../assets/images/Star.png'
+import starIcon from '../../assets/images/Star.webp'
 import DoctorAbout from '../../pages/Doctors/DoctorAbout.jsx'
 import Profile from './Profile.jsx'
 import Appointments from './Appointments.jsx'
-import defaultPhoto from "../../assets/images/default.jpeg"
+import defaultPhoto from "../../assets/images/default.webp"
 
 const Dashboard = () => {
   const { data, loading, error } = useGetProfile(`${BASE_URL}/doctors/profile/me`)

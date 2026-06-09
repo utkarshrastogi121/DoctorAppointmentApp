@@ -4,7 +4,7 @@ import uploadImageToCloudinary from "../../utils/uploadCloudinary";
 import { BASE_URL } from "../../../config";
 import { toast } from "react-toastify";
 import { authContext } from "../../context/AuthContext";
-import defaultPhoto from "../../assets/images/default.jpeg";
+import defaultPhoto from "../../assets/images/default.webp";
 
 const DoctorProfile = ({ doctorData }) => {
   const { token } = useContext(authContext);

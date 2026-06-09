@@ -1,5 +1,5 @@
 import { formatDate } from '../../utils/formatDate'
-import defaultPhoto from "../../assets/images/default.jpeg"
+import defaultPhoto from "../../assets/images/default.webp"
 
 const Appointments = ({ appointments }) => {
   return (

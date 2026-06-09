@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { formatDate } from '../../utils/formatDate';
 import { AiFillStar } from 'react-icons/ai';
 import FeedbackForm from './FeedbackForm';
-import defaultPhoto from "../../assets/images/default.jpeg"
+import defaultPhoto from "../../assets/images/default.webp"
 
 const Feedback = ({ reviews = [], totalRating = 0 }) => {
   const [showFeedbackForm, setShowFeedbackForm] = useState(false);
