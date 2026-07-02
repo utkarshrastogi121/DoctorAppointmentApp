@@ -1,8 +1,11 @@
 import { useEffect, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { authContext } from '../context/AuthContext';
 
 const useFetchData = (url, options = {}) => {
-  const { token: contextToken } = useContext(authContext);
+  const { token: contextToken, dispatch } = useContext(authContext);
+  const navigate = useNavigate();
+
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -31,6 +34,12 @@ const useFetchData = (url, options = {}) => {
         const result = await res.json();
 
         if (!res.ok) {
+          if (res.status === 401) {
+            dispatch({ type: 'LOGOUT' });
+            navigate('/login', { replace: true });
+            return;
+          }
+
           throw new Error(result.message || 'Something went wrong');
         }
 
@@ -47,7 +56,7 @@ const useFetchData = (url, options = {}) => {
     fetchData();
 
     return () => controller.abort();
-  }, [url, contextToken]);
+  }, [url, contextToken, navigate, dispatch]);
 
   return { data, loading, error };
 };
