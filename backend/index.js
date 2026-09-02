@@ -15,8 +15,7 @@ import chatbotRoute from './Routes/chatbot.js'
 
 const app=express()
 
-const port=process.env.PORT 
-
+const port = process.env.PORT || 5000
 app.use(cors());
 
 app.get('/', (req, res) => {
