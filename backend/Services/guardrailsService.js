@@ -83,7 +83,7 @@ Return ONLY a valid JSON object matching this schema:
 
   try {
     const completion = await groq.chat.completions.create({
-      model: "llama3-8b-8192",
+      model: "qwen/qwen3.8-27b",
       messages: [{ role: "user", content: prompt }],
       response_format: { type: "json_object" },
       temperature: 0.0,
